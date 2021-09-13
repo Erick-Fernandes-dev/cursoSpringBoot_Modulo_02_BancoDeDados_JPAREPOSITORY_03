@@ -75,4 +75,11 @@ public class Pedido {
                 ", total=" + total +
                 '}';
     }
+
+    /*
+    * precision --> quantidade de digitos que tem um numero
+    * scale --> quantidade de casas decimais
+    *
+    *
+    * */
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "cliente")
+@Table( name = "cliente" )
 public class Cliente {
 
     @Id
@@ -15,19 +15,26 @@ public class Cliente {
     @Column(name = "nome", length = 100)
     private String nome;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
     private Set<Pedido> pedidos;
 
-    public Cliente(){
-
+    public Cliente() {
     }
 
-    public Cliente(String nome) {
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public Cliente(Integer id, String nome) {
+        this.id = id;
         this.nome = nome;
     }
 
-    public Cliente(Integer id, String nome){
-        this.id = id;
+    public Cliente(String nome) {
         this.nome = nome;
     }
 
@@ -45,14 +52,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
     }
 
     @Override
